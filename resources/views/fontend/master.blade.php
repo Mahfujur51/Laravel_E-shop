@@ -26,6 +26,9 @@
                     <li class="nav-item {{Route::currentRouteName()=='contact'?'active' : ''}}">
                         <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
                     </li>
+                       <li class="nav-item {{Route::currentRouteName()=='product'?'active' : ''}}">
+                        <a class="nav-link" href="{{ route('product') }}">All Product</a>
+                    </li>
 
 
                 </ul>

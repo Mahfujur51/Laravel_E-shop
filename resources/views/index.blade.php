@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row mt-2">
                @include('layouts.inc.slider')
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="card">
                         <div class="card-header  mt-2 mb-2"><h4 class="text-center">Product Page</h4></div>
                     </div>
@@ -12,7 +12,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -29,7 +29,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -46,7 +46,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -63,7 +63,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -80,7 +80,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -97,7 +97,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -114,7 +114,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -131,7 +131,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
@@ -148,7 +148,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="card">
                                 <div class="card-img-top">
-                                    <img src="{{asset('product/1.jpg')}}" height="300" alt="">
+                                    <img src="{{asset('productImage/1.jpg')}}" height="300" alt="">
                                 </div>
                                 <div class="card-header">
                                     Demo
