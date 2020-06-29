@@ -21,5 +21,14 @@ Route::get('/','FontendController@index')->name('index');
 Route::get('/contact','FontendController@contact')->name('contact');
 Route::get('/about','FontendController@about')->name('about');
 Route::get('/products','FontendController@product')->name('product');
+Route::group(['prefix'=>'admin'],function(){
+ Route::get('/dashboard','AdminController@dashboard')->name('dashboard');
+ Route::get('/add/product','AdminController@add_product')->name('add.product');
+ Route::post('/add/product','AdminController@product_store')->name('product.store');
+ Route::get('/product/list','AdminController@product_index')->name('product.index');
+ Route::get('/product/delete/{id}','AdminController@product_delete')->name('product.delete');
+ Route::get('/product/edit/{id}','AdminController@product_edit')->name('product.edit');
+ Route::post('/update/product/{id}','AdminController@product_update')->name('product.update');
 
+});
 
