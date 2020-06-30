@@ -22,11 +22,11 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Category Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <input type="text" name="name" class="form-control" value="{{$category->name}}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Description</label>
-                    <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+                    <textarea name="description" class="form-control" id="" cols="30" rows="10">{{$category->description}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Select Category</label>
