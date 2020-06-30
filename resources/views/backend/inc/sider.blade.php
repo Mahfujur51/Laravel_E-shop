@@ -19,7 +19,7 @@
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
                 <span class="menu-title">Product</span>
@@ -27,11 +27,29 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
+                  <li class="nav-item {{Route::currentRouteName()=='add.product'?'active' : ''}}">
                     <a class="nav-link" href="{{ route('add.product') }}">Add Product</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item {{Route::currentRouteName()=='product.index'?'active' : ''}}">
                     <a class="nav-link" href="{{ route('product.index') }}">Show Product</a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Category</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="category">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link {{Route::currentRouteName()=='category.add'?'active' : ''}}" href="{{ route('category.add') }}">Add Category</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {{Route::currentRouteName()=='category.index'?'active' : ''}}" href="{{ route('category.index') }}">Show Category</a>
                   </li>
 
                 </ul>
