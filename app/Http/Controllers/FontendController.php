@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 class FontendController extends Controller
 {
     public function  index(){
@@ -38,6 +39,10 @@ class FontendController extends Controller
         ->OrderBy('id','desc')->paginate(9);
         return view('search',compact('search','products'));
 
+    }
+    public function category($id){
+        $products=Product::WhereIn('category_id',$id)->paginate(12);
+        return view('Category.index',compact('products'));
     }
 
 }

@@ -21,9 +21,11 @@ Route::get('/','FontendController@index')->name('index');
 Route::get('/contact','FontendController@contact')->name('contact');
 Route::get('/about','FontendController@about')->name('about');
 Route::get('/products','FontendController@product')->name('product');
-Route::get('/category/{id}','FontendController@show_category')->name('category.show');
+
 Route::get('/show/{slug}','FontendController@show')->name('show');
 Route::get('/search','FontendController@search')->name('search');
+Route::get('/category/{id}','FontendController@category')->name('category.show');
+
 Route::group(['prefix'=>'admin'],function(){
    Route::get('/dashboard','AdminController@dashboard')->name('dashboard');
    Route::get('/add/product','AdminController@add_product')->name('add.product');
