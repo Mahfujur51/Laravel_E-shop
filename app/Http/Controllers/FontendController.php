@@ -21,7 +21,7 @@ class FontendController extends Controller
     public function show($slug){
         $products=Product::Where('slug',$slug)->first();
         if (!is_null($products)) {
-        return view('Product.show',compact('products'));
+            return view('Product.show',compact('products'));
 
         }
         else{
@@ -29,4 +29,15 @@ class FontendController extends Controller
             return redirect()->back();
         }
     }
+    public function search(Request $request){
+        $search=$request->search;
+        $products=Product::orWhere('title','like','%'.$search.'%')
+        ->orWhere('description','like','%'.$search.'%')
+        ->orWhere('price','like','%'.$search.'%')
+        ->orWhere('slug','like','%'.$search.'%')
+        ->OrderBy('id','desc')->paginate(9);
+        return view('search',compact('search','products'));
+
+    }
+
 }

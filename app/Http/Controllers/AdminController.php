@@ -21,7 +21,9 @@ class AdminController extends Controller
         'title'=>'required|unique:products',
         'description'=>'required',
         'price'=>'required',
-        'quantity'=>'required'
+        'quantity'=>'required',
+        'category_id'=>'required',
+        'brand_id'=>'required'
 
     ]);
     $product=new Product;
@@ -30,9 +32,9 @@ class AdminController extends Controller
     $product->price=$request->price;
     $product->quantity=$request->quantity;
     $product->slug=str_slug($product->title);
-    $product->category_id=1;
+    $product->category_id=$request->category_id;
     $product->status=1;
-    $product->brand_id=1;
+    $product->brand_id=$request->brand_id;
     $product->admin_id=1;
     $product->save();
    //single Image
@@ -124,4 +126,5 @@ class AdminController extends Controller
 
 
    }
+
 }

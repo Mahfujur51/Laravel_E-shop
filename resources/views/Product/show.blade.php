@@ -23,6 +23,11 @@
                             @endforeach
                         </div>
                     </div>
+                    <div class="card-text">
+                        <p>Category <span class="badge badge-info">{{$products->category->name}}</span></p>
+                          <p>Brand <span class="badge badge-info">{{$products->brand->name}}</span></p>
+
+                    </div>
 
                 </div>
             </div>
@@ -30,7 +35,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header  mt-2 mb-2">
-                    {{$products->title}} <span class="badge badge-info">@if ($products->quantity>0)
+                    {{$products->title}}  <span class="badge badge-info">@if ($products->quantity>0)
                         {{$products->quantity}} Availabe
                         @else{
                         No Product Available

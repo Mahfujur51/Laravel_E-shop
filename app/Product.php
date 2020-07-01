@@ -9,4 +9,10 @@ class Product extends Model
     public function images(){
        return $this->hasMany('App\ProductImage');
     }
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+    public function brand(){
+        return $this->belongsTo('App\Brand');
+    }
 }
