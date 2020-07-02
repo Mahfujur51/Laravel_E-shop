@@ -41,8 +41,8 @@ class FontendController extends Controller
 
     }
     public function category($id){
-        $products=Product::WhereIn('category_id',$id)->paginate(12);
-        return view('Category.index',compact('products'));
+        $category=Category::find($id);
+        return view('Category.index',compact('category'));
     }
 
 }
