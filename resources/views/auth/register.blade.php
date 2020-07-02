@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('fontend.master')
+@section('title','Register Page')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

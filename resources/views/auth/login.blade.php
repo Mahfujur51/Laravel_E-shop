@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('fontend.master')
+@section('title','Login Page')
 
 @section('content')
 <div class="container">
