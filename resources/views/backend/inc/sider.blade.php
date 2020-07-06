@@ -89,7 +89,7 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item {{ request()->is('admin/division/*') ? 'active' : '' }}">
+        <li class="nav-item {{ request()->is('admin/distric/*') ? 'active' : '' }}">
             <a class="nav-link" data-toggle="collapse" href="#distric" aria-expanded="false" aria-controls="distric">
                 <i class="menu-icon typcn typcn-document-add"></i>
                 <span class="menu-title">Manage Distric</span>
@@ -98,10 +98,10 @@
             <div class="collapse" id="distric">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('division.add') }}">Add Distric </a>
+                        <a class="nav-link" href="{{ route('distric.add') }}">Add Distric </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('division.index') }}">Show Distric </a>
+                        <a class="nav-link" href="{{ route('distric.index') }}">Show Distric </a>
                     </li>
 
                 </ul>

@@ -66,6 +66,16 @@ Route::group(['prefix'=>'admin'],function(){
    Route::get('/edit/{id}','DivisionController@division_edit')->name('division.edit');
 
 });
+   //==============Division Route======
+  Route::group(['prefix'=>'/distric'],function(){
+   Route::get('/index','DistricController@index')->name('distric.index');
+   Route::get('/delete/{id}','DistricController@distric_delete')->name('distric.delete');
+   Route::get('/add','DistricController@distric_add')->name('distric.add');
+   Route::post('/store','DistricController@distric_store')->name('distric.store');
+   Route::post('/update/{id}','DistricController@distric_update')->name('distric.update');
+   Route::get('/edit/{id}','DistricController@distric_edit')->name('distric.edit');
+
+});
 
 });
 

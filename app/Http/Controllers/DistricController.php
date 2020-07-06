@@ -3,36 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
+use App\Distric;
+use App\Division;
 
 class DistricController extends Controller
 {
 public function index(){
-        $division=Division::orderBy('id','desc')->get();
-        return view('backend.division.index',compact('division'));
+        $distric=Distric::orderBy('id','desc')->get();
+        return view('backend.distric.index',compact('distric'));
     }
-    public function division_add(){
-
-        return view('backend.division.create');
+    public function distric_add(){
+        $division=Division::all();
+        return view('backend.distric.create',compact('division'));
     }
-    public function division_store(Request $request){
+    public function distric_store(Request $request){
         $this->validate($request,[
-            'name'=>'required|unique:divisions',
-            'piority'=>'required'
+            'name'=>'required|unique:districs',
+            'division_id'=>'required'
 
         ]);
-        $division=new Division();
-        $division->name=$request->name;
-        $division->piority=$request->piority;
+        $distric=new Distric();
+        $distric->name=$request->name;
+        $distric->division_id=$request->division_id;
 
 
-        $division->save();
-        Session::flash('success','Division Added Successfully!!');
-        return redirect()->route('division.index');
+        $distric->save();
+        Session::flash('success','Distric Added Successfully!!');
+        return redirect()->route('distric.index');
     }
-    public function division_edit($id){
-        $division=Division::find($id);
+    public function distric_edit($id){
+        $distric=Distric::find($id);
+        $division=Division::all();
 
-        return view('backend.division.edit',compact('division'));
+        return view('backend.distric.edit',compact('distric','division'));
     }
     public function division_update(Request $request,$id){
         $this->validate($request,[
@@ -49,17 +53,11 @@ public function index(){
         Session::flash('success','Division Updated Successfully!!');
         return redirect()->route('division.index');
     }
-    public function division_delete ($id){
-        $division=Division::find($id);
-        if (!is_null($division)) {
-            $distric=Distric::where('division_id',$division->id)->get();
-            foreach ($distric as $districs) {
-                $districs->delete();
-            }
-        }
-        $division->delete();
+    public function distric_delete($id){
+        $distric=Distric::find($id);
+        $distric->delete();
 
-        Session::flash('success',' Division Deleted Successfully!!');
+        Session::flash('success',' Distric Deleted Successfully!!');
         return redirect()->back();
     }
 }

@@ -8,6 +8,6 @@ class Distric extends Model
 {
     public function division()
     {
-        return $this->belongsTo('App\Division')
+        return $this->belongsTo('App\Division');
     }
 }
