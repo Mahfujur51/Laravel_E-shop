@@ -71,6 +71,42 @@
                 </ul>
             </div>
         </li>
+           <li class="nav-item {{ request()->is('admin/division/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#division" aria-expanded="false" aria-controls="division">
+                <i class="menu-icon typcn typcn-document-add"></i>
+                <span class="menu-title">Manage Divsion</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="division">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('division.add') }}">Add Division </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('division.index') }}">Show Division </a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item {{ request()->is('admin/division/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#distric" aria-expanded="false" aria-controls="distric">
+                <i class="menu-icon typcn typcn-document-add"></i>
+                <span class="menu-title">Manage Distric</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="distric">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('division.add') }}">Add Distric </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('division.index') }}">Show Distric </a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
                 <i class="menu-icon typcn typcn-shopping-bag"></i>

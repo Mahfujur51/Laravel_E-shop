@@ -55,5 +55,17 @@ Route::group(['prefix'=>'admin'],function(){
 
 });
 
+
+  //==============Division Route======
+  Route::group(['prefix'=>'/division'],function(){
+   Route::get('/index','DivisionController@index')->name('division.index');
+   Route::get('/delete/{id}','DivisionController@division_delete')->name('division.delete');
+   Route::get('/add','DivisionController@division_add')->name('division.add');
+   Route::post('/store','DivisionController@division_store')->name('division.store');
+   Route::post('/update/{id}','DivisionController@division_update')->name('division.update');
+   Route::get('/edit/{id}','DivisionController@division_edit')->name('division.edit');
+
+});
+
 });
 
