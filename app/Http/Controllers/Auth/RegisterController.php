@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Division;
+use App\Distric;
 
 class RegisterController extends Controller
 {
@@ -41,6 +43,16 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+
+
+    public function showRegistrationForm()
+    {
+        $division=Division::orderBy('piority','desc')->get();
+        $distric=Distric::all();
+        return view('auth.register',compact('division','distric'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -50,9 +62,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'division_id'=>['required','numeric'],
+            'district_id'=>['required','numeric'],
+            'phone_no'=>['required','max:12'],
+            'street_address'=>['required','max:200'],
+            'ip_address'=>['required'],
         ]);
     }
 
@@ -65,9 +83,18 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username'=>str_slug($data['first_name'].$data['last_name']),
+            'division_id' => $data['division_id'],
+            'district_id' => $data['district_id'],
+            'phone_no' => $data['phone_no'],
             'email' => $data['email'],
+            'street_address' => $data['street_address'],
+            'ip_address'=>request()->ip(),
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
 }

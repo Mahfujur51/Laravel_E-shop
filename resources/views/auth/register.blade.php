@@ -66,6 +66,52 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="division_id" class="col-md-4 col-form-label text-md-right">{{ __('Select Division') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="division_id" id="" class="form-control">
+                                    <option value="">Select Division</option>
+                                    @foreach ($division as $divisions)
+                                        {{-- expr --}}
+
+                                    <option value="{{$divisions->id}}">{{$divisions->name}}</option>
+                                     @endforeach
+                                </select>
+
+
+                                @error('division_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                            <label for="district_id" class="col-md-4 col-form-label text-md-right">{{ __('Select Distric') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="district_id" id="district_id" class="form-control">
+                                    <option value="">Select Distric</option>
+                                    @foreach ($distric as $districs)
+                                        {{-- expr --}}
+
+                                    <option value="{{$districs->id}}">{{$districs->name}}</option>
+                                     @endforeach
+                                </select>
+
+
+                                @error('distric_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
                             <div class="form-group row">
                             <label for="street_address" class="col-md-4 col-form-label text-md-right">{{ __('Street Address') }}</label>
 
