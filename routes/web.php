@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','FontendController@index')->name('index');
 Route::get('/contact','FontendController@contact')->name('contact');
+Route::get('/token/{token}','FontendController@verify')->name('user.verification');
 Route::get('/about','FontendController@about')->name('about');
 Route::get('/products','FontendController@product')->name('product');
 

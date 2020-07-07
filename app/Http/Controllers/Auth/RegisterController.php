@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Division;
 use App\Distric;
+use App\Notifications\VerifyRegistration;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -70,7 +73,7 @@ class RegisterController extends Controller
             'district_id'=>['required','numeric'],
             'phone_no'=>['required','max:12'],
             'street_address'=>['required','max:200'],
-            'ip_address'=>['required'],
+
         ]);
     }
 
@@ -80,20 +83,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function register(Request $request)
     {
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'username'=>str_slug($data['first_name'].$data['last_name']),
-            'division_id' => $data['division_id'],
-            'district_id' => $data['district_id'],
-            'phone_no' => $data['phone_no'],
-            'email' => $data['email'],
-            'street_address' => $data['street_address'],
+        $user = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'username'=>str_slug($request->first_name.$request->last_name),
+            'division_id' => $request->division_id,
+            'district_id' => $request->district_id,
+            'phone_no' => $request->phone_no,
+            'email' => $request->email,
+            'street_address' => $request->street_address,
             'ip_address'=>request()->ip(),
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($request->password),
+            'remember_token'=>str_random(50),
         ]);
+
+        $user->notify(new VerifyRegistration($user));
+        Session::flash('success','A confirmation email has sent to you . Please Cheek your Email and Confirm your email');
+        return redirect()->route('index');
     }
 
 

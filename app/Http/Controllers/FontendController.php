@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\User;
+use Session;
 class FontendController extends Controller
 {
     public function  index(){
@@ -43,6 +45,21 @@ class FontendController extends Controller
     public function category($id){
         $category=Category::find($id);
         return view('Category.index',compact('category'));
+    }
+    public function verify($token){
+        $user=User::where('remember_token',$token)->first();
+        if (!is_null($user)) {
+            $user->status=1;
+            $user->remember_token=NULL;
+            $user->save();
+        Session::flash('success','You are Register Suceefully');
+        return redirect()->rotue('login');
+        }
+        else{
+            Session::flash('info','Your Toke is not match!!');
+            return redirect()->route('index');
+        }
+
     }
 
 }
