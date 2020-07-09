@@ -53,7 +53,7 @@ class FontendController extends Controller
             $user->remember_token=NULL;
             $user->save();
         Session::flash('success','You are Register Suceefully');
-        return redirect()->rotue('login');
+        return redirect('login');
         }
         else{
             Session::flash('info','Your Toke is not match!!');
